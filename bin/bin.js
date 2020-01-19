@@ -63,14 +63,14 @@ child.stdout.on('data', async (data) => {
 
 setTimeout(async () => {
 	const result = await uploadimg([
-		`http://${config.ip}:9006/${folder}/${target}-s1.png`,
-		`http://${config.ip}:9006/${folder}/${target}-s2.png`,
-		`http://${config.ip}:9006/${folder}/${target}-s3.png`,
-		`http://${config.ip}:9006/${folder}/${target}-s4.png`
-	]).catch(() => {
+		`http://${config.host}:9006/${folder}/${target}-s1.png`,
+		`http://${config.host}:9006/${folder}/${target}-s2.png`,
+		`http://${config.host}:9006/${folder}/${target}-s3.png`,
+		`http://${config.host}:9006/${folder}/${target}-s4.png`
+	], config).catch((e) => {
+		console.log(e)
 		console.log('upload imgs failed!')
 	})
 
 	fs.writeFileSync(`${config.workDir}/${folder}/${target}-info.txt`, `[mediainfo]${mediainfo}[/mediainfo]\n${result}`)
-}, 10000)
-
+}, 2000)

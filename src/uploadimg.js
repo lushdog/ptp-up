@@ -1,7 +1,6 @@
 const puppeteer = require('puppeteer')
-const config = require('../config.json')
 
-module.exports = async imgs => {
+module.exports = async (imgs, config) => {
 
   const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']})
   const page = await browser.newPage()
@@ -12,10 +11,10 @@ module.exports = async imgs => {
     height: 768 * 2
   })
 
-  await page.evaluate(() => {
+  await page.evaluate((config) => {
     document.querySelector('#email').value = config.ptpimgEmail
     document.querySelector('#pass').value = config.ptpimgPassword
-  })
+  }, config)
 
   await Promise.all([
     page.waitForNavigation(), // The promise resolves after navigation has finished
@@ -28,17 +27,19 @@ module.exports = async imgs => {
 
   await page.waitFor(1000)
   
-  await page.evaluate(() => {
+  await page.evaluate((imgs) => {
+    console.log('imgs', imgs);
     document.querySelector('#link-upload').value = `${imgs[0]}\n${imgs[1]}\n${imgs[2]}\n${imgs[3]}`
+    console.log('imgs input values', `${imgs[0]}\n${imgs[1]}\n${imgs[2]}\n${imgs[3]}`)
     // document.querySelector('#link-upload').value = `${'https://i.stack.imgur.com/wpAaZ.jpg'}`
     document.querySelector('#link .btn.btn-success').click()
-  })
+  }, imgs)
 
   await page.waitFor(5000)
 
   const reslut = await page.$eval('#bbcode textarea', ele => ele.innerHTML)
 
-  await page.screenshot({ path: 'example.png' })
+  console.log('reslut', reslut);
 
   await browser.close()
 
