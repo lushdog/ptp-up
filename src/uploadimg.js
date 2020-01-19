@@ -3,7 +3,7 @@ const config = require('../config.json')
 
 module.exports = async imgs => {
 
-  const browser = await puppeteer.launch()
+  const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']})
   const page = await browser.newPage()
   await page.goto('https://ptpimg.me/index.php')
 
