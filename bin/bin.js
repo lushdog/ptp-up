@@ -62,6 +62,10 @@ child.stdout.on('data', async (data) => {
 })
 
 setTimeout(async () => {
+	if (!config.ptpimgEmail) {
+		return
+	}
+	console.log('starting to upload ss to ptpimg...')
 	const result = await uploadimg([
 		`http://${config.host}:9006/${folder}/${target}-s1.png`,
 		`http://${config.host}:9006/${folder}/${target}-s2.png`,
