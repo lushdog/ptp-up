@@ -25,6 +25,8 @@ nvm install stable
 
 ## Cofig
 
+copy config.example.json to config.json
+
 ```
 {
   "workDir": "/home/kaka/ptp", // store screenshots、torent file、mediainfo.
