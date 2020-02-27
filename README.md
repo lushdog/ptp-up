@@ -1,4 +1,4 @@
-# ptp-autoup
+# ptp-up
 You need install node.js、mktorrent、ffmpeg、mediainfo.
 
 ## install nodejs
