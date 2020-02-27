@@ -17,8 +17,8 @@ nvm install stable
 
 ## Usage
 
-1. ptp movies***.mkv 
-   ptp movies***.rar 
+1. ptp movies***.mkv <br>
+   ptp movies***.rar <br>
    ptp movies***.mkv --nomv (don't move this file to moveDir that config sets .)
 2. browse your.server.ip:9006
 3. movies***.mkv-info.txt would contain description you need.
