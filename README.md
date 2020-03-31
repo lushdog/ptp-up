@@ -12,8 +12,8 @@ nvm install stable
 ```
 
 ## Step
-1. git clone https://github.com/lushdog/ptp-up.git
-2. cd ptp-up && npm link && npm i http-server -g
+1. ```git clone https://github.com/lushdog/ptp-up.git```
+2. ```cd ptp-up && npm link && npm i http-server -g```
 
 ## Usage
 
