@@ -10,7 +10,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "ecstatic": "^4.1.2",
+    "ecstatic": "^4.1.4",
     "has-flag": "^4.0.0",
     "puppeteer": "^2.0.0",
     "shelljs": "^0.8.3"
